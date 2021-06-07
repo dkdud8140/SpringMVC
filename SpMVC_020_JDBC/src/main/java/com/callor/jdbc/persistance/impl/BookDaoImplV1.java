@@ -10,9 +10,9 @@ import com.callor.jdbc.persistance.BookDao;
 
 public class BookDaoImplV1 implements BookDao {
 
-	protected final JdbcTemplate JdbcTemplate ;
+	protected final JdbcTemplate jdbcTemplate ;
 	public BookDaoImplV1(JdbcTemplate jdbcTemplate ) {
-		this.JdbcTemplate = jdbcTemplate;
+		this.jdbcTemplate = jdbcTemplate;
 	}
 	@Override
 	public List<BookVO> selectAll() {
@@ -20,7 +20,7 @@ public class BookDaoImplV1 implements BookDao {
 		
 		String sql = " SELECT * FROM tbl_books";
 		
-		List<BookVO> books = JdbcTemplate.query(sql, new BeanPropertyRowMapper<BookVO>(BookVO.class));
+		List<BookVO> books = jdbcTemplate.query(sql, new BeanPropertyRowMapper<BookVO>(BookVO.class));
 		
 		return null;
 	}
