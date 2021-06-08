@@ -6,12 +6,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>반갑습니다</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>안돼~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</h1>
-	<p><a href="${rootPath}/comp/insert">출판사 추가</a>
-	<p><a href="${rootPath}/author/insert">저자 추가</a>
-	<p><a href="${rootPath}/books/insert">도서 추가</a>
+	<h1>저자 정보 등록</h1>
 </body>
 </html>
