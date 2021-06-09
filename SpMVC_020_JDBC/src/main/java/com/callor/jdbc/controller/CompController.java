@@ -3,9 +3,11 @@ package com.callor.jdbc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.callor.jdbc.model.CompVO;
 import com.callor.jdbc.persistance.CompDao;
+import com.callor.jdbc.service.CompService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -15,8 +17,10 @@ import lombok.extern.slf4j.Slf4j;
 public class CompController {
 
 	protected final CompDao compDao;
-	public CompController(CompDao compDao) {
+	protected final CompService compS;
+	public CompController(CompDao compDao, CompService compS) {
 		this.compDao = compDao;
+		this.compS = compS;
 	}
 	
 	
@@ -30,9 +34,7 @@ public class CompController {
 	@RequestMapping(value="/insert", method=RequestMethod.POST)
 	public String insert(CompVO compVO) {
 		log.debug("Comp VO {}",compVO.toString());
-		
-		compDao.insert(compVO);
-		
+		compS.insert(compVO);
 		return "redirect:/";
 	}
 	
@@ -43,6 +45,15 @@ public class CompController {
 		
 		return "comp/update";
 	}
+	
+	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public String delete(@RequestParam("cp_code") String code) {
+		compDao.delete(code);
+		return "redirect:/";
+	}
+	
+	
 	
 	
 }
