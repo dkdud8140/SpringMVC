@@ -20,9 +20,31 @@ legend {
 
 form label {
 	display: inline-block;
-	width: 20px;
+	width: 15%;
 	text-align: right;
+	margin: 8px 5px;
+	padding : 8px;
+	color: blue;
+	font-weight: bold;
 }
+
+form input {
+width: 70%;
+margin:5px;
+padding: 8px 12px;
+outline: 0;
+border-radius: 5px;
+
+}
+
+form input:focus {
+	border-color: #ddd;
+}
+
+form input:hover {
+	background-color: #ddd;
+}
+
 
 </style>
 
@@ -61,12 +83,15 @@ form label {
 			<input name="bk_pages" id="bk_pages" placeholder="">
 		</div>
 		</fieldset>
-	</form>
-
 	
 	<div class="btn_box">
-		<button class="btn_book_insert">도서등록</button>
+		<button type="button" class="btn_book_insert">도서등록</button>
+		<button type="reset" class="btn_book_insert">새로작성</button>
+		<button type="button" class="btn_book_insert">List</button>
 	</div>
+
+	</form>
+
 	
 	<%@ include file="/WEB-INF/views/include/include_footer.jspf" %>
 </body>

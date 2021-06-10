@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+section#main_sec {
+	width: 100%;
+	margin: 5px auto;
+	border: 1px solid #999; 
+	display: flex;
+	/* justify-content: space-around; */
+}
+
+section#main_sec article {
+	flex :1;
+	border : 1px solid green;
+	margin: 6px 3px;
+}
+
+section#main_sec article ul{
+	margin: 0;
+	padding:0; 
+
+}
+section#main_sec article li{
+	margin-left: 30px;
+	padding: 5px;
+
+}
+
+
+section#ad_sec {
+	width : 100%;
+	border: 1px solid black; 
+	display: flex;
+}
+
+section#ad_sec article{
+	flex:1;
+	width:100%;
+	height:150px;
+	margin: 6px 3px;
+	background-size: 100% 100%;
+	border-radius : 5px;
+}
+
+/* 
+home.jsp의 중간부분 이미지를 표현하는 부분의 CSS는
+rootPaht문제로 여기에 둘 수 없어서
+include_header.jspf 파일에 옮겼다 
+*/
+</style>

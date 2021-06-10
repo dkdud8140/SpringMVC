@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+h1.page_title {
+	
+	color: maroon;
+	padding : 2rem;
+}
+
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 90%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+table th, table td, table tr {
+	border-top : 1px solid #aaa;
+	padding: 5px 8px;
+}
+
+table td {
+	
+	margin-left: 20px;
+}
+
+
+table tr:last-child td {
+	 border-bottom: 1px solid #aaa;
+}
+
+
+table tr:nth-child(odd){
+	background-color: #ddd;
+}
+table tr:nth-child(even){
+	background-color: #aaa;
+}
+
+
+table tr:hover {
+	background-color: aqua;
+	cursor: pointer;
+}
+
+button {
+	padding : 10px 20px;
+	outline: 0;
+	border: 0;
+}
+
+button:hover {
+	box-shadow: 1px 1px 1px black;
+}
+
+div.btn_box {
+	text-align: right;
+	
+}
+
+
+
