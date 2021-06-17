@@ -38,7 +38,7 @@ public class HomeController {
 		this.rentS = rentS;
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = {"","/"}, method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		
 		log.debug("User name : {}", user_name);

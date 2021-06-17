@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+
+form {
+width: 60%;
+margin: 15px auto;
+}
+
+legend {
+	text-align: center;
+	padding: 10px;
+	background-color: white;	
+	font-weight: bolder;
+	background: inherit;
+}
+
+form label {
+	display: inline-block;
+	width: 15%;
+	text-align: right;
+	margin: 8px 5px;
+	padding : 8px;
+	color: #481849;
+	font-weight: bold;
+}
+
+form input {
+width: 70%;
+margin:5px;
+padding: 8px 12px;
+outline: 0;
+border : none;
+background: #F9ECF4;
+}
+
+form input:focus {
+	border-color: #ddd;
+}
+
+form input:hover {
+	background-color: #ddd;
+}
+
+div.btn_box button {
+margin: 10px ;
+background-color : #481849;
+color : white;
+border-radius : 5px;
+cursor: pointer;
+}

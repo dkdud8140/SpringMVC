@@ -6,6 +6,22 @@ h1.page_title {
 	padding : 2rem;
 }
 
+/*
+	style 지정을 할 때
+	tag에 id나 class를 부착하지 않고 지정하는 경우
+	
+	1. 현재 main_layout.css 파일은 모든 jsp에서 공통으로 include
+		모든 jsp에 있는 table에 공통으로 속성이 적용된다
+	2.
+
+*/
+
+
+
+div.list_table_box {
+	padding: 10px;
+}
+
 
 table {
 	border-collapse: collapse;
@@ -48,6 +64,8 @@ button {
 	padding : 10px 20px;
 	outline: 0;
 	border: 0;
+	margin-right: 5%;
+	margin-top: 10px;
 }
 
 button:hover {
