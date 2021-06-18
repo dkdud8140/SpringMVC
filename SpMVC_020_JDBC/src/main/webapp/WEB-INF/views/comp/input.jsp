@@ -10,42 +10,37 @@
 
 <body>
 	<%@ include file="/WEB-INF/views/include/include_header.jspf"%>
+	<section class="main_sec">
+		<form method="POST">
+			<fieldset>
+				<legend>출판사정보등록</legend>
+				<div>
+					<label>출판사명</label> <input name="cp_title" id="cp_title"
+						placeholder="">
+				</div>
+				<div>
+					<label>출판사대표</label> <input name="cp_ceo" id="cp_ceo"
+						placeholder="">
+				</div>
+				<div>
+					<label>연락처</label> <input name="cp_tel" id="cp_tel" placeholder="">
+				</div>
+				<div>
+					<label>주소</label> <input name="cp_addr" id="cp_addr" placeholder="">
+				</div>
+				<div>
+					<label>주요장르</label> <input name="cp_genre" id="cp_genre"
+						placeholder="">
+				</div>
 
-	<form method="POST">
-		<fieldset>
-			<legend>출판사정보등록</legend>
-			<div>
-				<label>출판사명</label> <input name="cp_title" id="cp_title"
-					placeholder="">
-			</div>
-			<div>
-				<label>출판사대표</label> <input name="cp_ceo" id="cp_ceo"
-					placeholder="">
-			</div>
-			<div>
-				<label>연락처</label> <input name="cp_tel" id="cp_tel"
-					placeholder="">
-			</div>
-			<div>
-				<label>주소</label> <input name="cp_addr" id="cp_addr"
-					placeholder="">
-			</div>
-			<div>
-				<label>주요장르</label> <input name="cp_genre" id="cp_genre"
-					placeholder="">
-			</div>
-
-			<div class="btn_box">
-				<button type="button" class="btn_comp_insert">도서등록</button>
-				<button type="reset" class="btn_comp_new">새로작성</button>
-				<button type="button" class="btn_comp_list">List</button>
-			</div>
-
-		</fieldset>
-
-
-
-	</form>
+				<div class="btn_box">
+					<button type="button" class="btn_comp_insert">도서등록</button>
+					<button type="reset" class="btn_comp_new">새로작성</button>
+					<button type="button" class="btn_comp_list">List</button>
+				</div>
+			</fieldset>
+		</form>
+	</section>
 
 	<%@ include file="/WEB-INF/views/include/include_footer.jspf"%>
 </body>
