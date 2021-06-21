@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.callor.jdbc.service.AuthorService;
+import com.callor.jdbc.service.CompService;
+import com.callor.jdbc.service.HomeService;
 import com.callor.jdbc.service.RentService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -32,8 +35,10 @@ public class HomeController {
 	 */
 	// protected final BookDao bookDao;
 	protected final RentService rentService;
-	public HomeController(RentService rentService) {
+	protected final HomeService homSer;
+	public HomeController(RentService rentService, HomeService homSer) {
 		this.rentService = rentService;
+		this.homSer = homSer;
 	}
 	
 	/*
@@ -64,6 +69,10 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
+		
+		homSer.dashBoard(model);
+		
+		
 		
 		/*
 		 * 매개변수로 전달받은 Model class type변수인 model에

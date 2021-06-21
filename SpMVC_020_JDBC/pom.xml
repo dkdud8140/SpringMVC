@@ -84,6 +84,7 @@
 
 
 		<!-- @Inject -->
+		<!-- @Autowired의 parent -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>

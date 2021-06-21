@@ -1,8 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&display=swap');
 
-
-
 section#main_sec {
 	flex :auto;
 	width: 100%;
@@ -21,14 +19,16 @@ section#main_sec article {
 section#main_sec article ul{
 	margin: 0;
 	padding:0; 
-
 }
 section#main_sec article li{
 	margin-left: 30px;
 	padding: 5px;
-
+	
+	max-width:  100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
-
 
 section#ad_sec {
 	width : 100%;
@@ -41,7 +41,6 @@ section#ad_sec article{
 	width:100%;
 	height:150px;
 	margin: 6px 3px;
-	
 	/*
 		article 박스에 지정된 background를 box에 가득 차도록 하고
 		이미지는 box 크기만큼 가로세로를 조절하여 채워라
@@ -50,8 +49,6 @@ section#ad_sec article{
 		background-size가 작동 되지 않더라
 		해결방법 : include_header.jspf 참조
 	*/
-	
-	
 	background-size: 100% 100%;
 	border-radius : 5px;
 }
@@ -61,4 +58,3 @@ home.jsp의 중간부분 이미지를 표현하는 부분의 CSS는
 rootPaht문제로 여기에 둘 수 없어서
 include_header.jspf 파일에 옮겼다 
 */
-</style>

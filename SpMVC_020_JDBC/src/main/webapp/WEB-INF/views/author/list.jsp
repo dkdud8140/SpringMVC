@@ -20,17 +20,34 @@ button.btn_book_insert {
 		<div class="list_table_box">
 			<table>
 				<tr>
+					<th>저자코드</th>
 					<th>저자명</th>
 					<th>저자연락처</th>
 					<th>저자주소</th>
 					<th>주요장르</th>
 				</tr>
-				<tr>
-					<td>저자명</td>
-					<td>저자연락처</td>
-					<td>저자주소</td>
-					<td>주요장르</td>
-				</tr>
+				
+				
+				<c:choose>
+					<c:when test="${empty AUTHORS}">
+						<tr><td colspan="5">No-data</td></tr>
+					</c:when>
+					
+					<c:otherwise>
+						<c:forEach items="${AUTHORS}" var="AUTH" varStatus="seq">
+						<tr>
+							<td>${AUTH.au_code}</td>
+							<td>${AUTH.au_name}</td>
+							<td>${AUTH.au_tel}</td>
+							<td>${AUTH.au_addr}</td>
+							<td>${AUTH.au_genre}</td>
+						</tr>		
+						</c:forEach>			
+					</c:otherwise>
+				</c:choose>
+				
+				
+				
 			</table>
 
 			<div class="btn_box">

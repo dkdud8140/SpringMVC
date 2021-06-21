@@ -11,10 +11,15 @@ footer {
 
 address {
 	text-align: center;
-	
 }
+
 </style>
 
 <footer>
 	<address>CopyRight &copy; dkdud8140@gmail.com</address>
 </footer>
+
+<div id="modal">
+	<span>X</span>
+</div>
+

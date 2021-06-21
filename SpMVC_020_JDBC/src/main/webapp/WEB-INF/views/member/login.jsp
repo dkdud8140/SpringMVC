@@ -17,6 +17,15 @@
 		background-color: #191919;
 		text-align: center;
 		border-radius: 20px;
+		z-index: 500;
+		
+		top : 50%;
+		left: 50%;
+		transform: traslate(-50%, -50%);
+		
+		animation-name : aniTopDown ;
+		animation-duration : 0.8s;
+		
 		
 	}
 	
@@ -93,9 +102,28 @@
 		color:yellow;
 		
 		font-size:20px;
-	
 	}
 
+div#modal {
+		display: block;
+	}
+	
+	@keyftames aniTopDown {
+		form {
+			top :-300px;
+			opacity: 0;
+		}
+		
+		to{
+			top:50%
+			transform : translateY(-50%);
+			opacity: 1;
+		}
+	
+	} 
+	
+	
+	
 </style>
 <body>
 	<%@ include file="/WEB-INF/views/include/include_header.jspf" %>

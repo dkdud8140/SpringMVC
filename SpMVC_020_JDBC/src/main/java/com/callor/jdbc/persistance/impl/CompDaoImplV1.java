@@ -20,7 +20,6 @@ import lombok.extern.slf4j.Slf4j;
  * @Controller @Service @Repository 이러한 Annotation을 사용한다
  * Spring Container에게 ㅊ이 표식이 부착된 클래스를 bean으로 생성하여 보관하라
  * 
- * 
  * CompVO c = new CompVO()
  * Object o = new CompVO()
  * 
@@ -28,8 +27,6 @@ import lombok.extern.slf4j.Slf4j;
  * CompService cs2 = new CompServiecImplV1()
  * 
  */
-
-
 
 @Slf4j
 @Repository("compDaoV1")
@@ -49,7 +46,7 @@ public class CompDaoImplV1 implements CompDao {
 		List<CompVO> comps = jdbcTemplate.query(sql, new BeanPropertyRowMapper<CompVO>(CompVO.class));
 		log.debug("SELECT {}",comps.toString());
 		
-		return null;
+		return comps;
 	}
 
 	@Override
@@ -135,6 +132,20 @@ public class CompDaoImplV1 implements CompDao {
 		
 			
 		return cpCode;
+	}
+
+	@Override
+	public List<CompVO> findByCName(String cname) {
+
+		String sql = " SELECT * FROM tbl_company ";
+		// 오라클 sql += " WHERE cp_name LIKE '%' || '%' || ";
+		sql += " WHERE cp_name LIKE CONCAT('%', ? '%') ";
+		
+		// select를 수행한 후 각각의 데이터를 CompVO에
+		List<CompVO> compList = jdbcTemplate.query(sql, new Object[] { cname },
+				new BeanPropertyRowMapper<CompVO>(CompVO.class));
+		
+		return compList;
 	}
 
 }
