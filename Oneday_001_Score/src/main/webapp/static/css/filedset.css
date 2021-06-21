@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+
+form.update_box {
+	width: 50%;
+	margin: 20px auto;
+}
+
+form.update_box fieldset {
+	border: 1px solid #20605B;
+	border-radius: 10px;
+	padding: 20px;
+	width: 100%;
+}
+
+form.update_box legend {
+	text-align: center;
+	padding: 10px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+form.update_box div {
+	margin: 20px auto;
+	width: 90%;
+}
+
+form.update_box div label {
+	display: inline-block;
+	width: 20%;
+	text-align: right;
+	margin: 5px;
+	padding: 10px;
+	color: #20605B;
+	font-weight: bold;
+}
+
+form.update_box div input {
+	display: inline-block;
+	width: 70%;
+	margin: 5px;
+	padding: 10px;
+	background-color: #E8F7F3;
+	border: none;
+}
+

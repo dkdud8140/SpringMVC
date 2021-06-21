@@ -27,19 +27,24 @@ div.wrap_table {
 	margin: 10px auto;
 	
 }
+div.btn_box {
+	text-align: right;
+	width: 90%;
+}
 
-.btn_insert {
+div.btn_box .btn_insert {
 	background-color: #20605B;
 	color: white;
 	padding: 5px 8px;
 	border-radius: 3px;
-	margin-left: auto;
-	margin: 5px 5px 5px 90%;
 	width: 10%;
 	height : 30px;
 	overflow: hidden;
 	border: none ;
+	display: inline-block;
+	margin : 5px;
 }
+
 
 .btn_insert:hover {
 	cursor: pointer;

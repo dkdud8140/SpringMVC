@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 
-<link href="static/css/basic.css?ver=002" rel="stylesheet"/>
+<link href="${rootPath}/static/css/basic.css?ver-007" rel="stylesheet"/>
+<link href="${rootPath}/static/css/filedset.css?ver-007" rel="stylesheet"/>
 
 <style>
 @import	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap')	;

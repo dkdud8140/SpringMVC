@@ -28,7 +28,6 @@ public class HomeController {
 		List<ViewDTO> vList = vDao.selectAll();
 		
 		model.addAttribute("vList",vList);
-		log.debug("DTO : {}", vList);
 		return "home";
 	}
 	

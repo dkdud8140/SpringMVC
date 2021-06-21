@@ -11,14 +11,15 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class ViewDTO {
 	
-	private String v_num;
-	private String v_name;
-	private String v_dept;
-	private Integer v_grade;
-	private Integer v_count;
-	private Integer v_sum;
-	private Float v_avg;
+	public String v_num ;
+	public String v_name ;
+	public String v_dept ;
+	public Integer v_grade ;
+	public Integer v_count ;
+	public Integer v_sum ;
+	public Float v_avg ;
 
 }
