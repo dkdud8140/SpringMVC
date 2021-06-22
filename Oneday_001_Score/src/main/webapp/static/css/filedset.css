@@ -44,3 +44,23 @@ form.update_box div input {
 	border: none;
 }
 
+button {
+	background-color: #20605B;
+	color: white;
+	padding: 5px 8px;
+	border-radius: 3px;
+	width: 10%;
+	height : 30px;
+	overflow: hidden;
+	border: none ;
+	display: inline-block;
+	margin : 5px;
+}
+
+
+button:hover {
+	cursor: pointer;
+	text-shadow: 1px 1px 1px black;
+}
+
+

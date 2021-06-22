@@ -6,6 +6,7 @@ public interface StudentService {
 	
 	public int update(StudentVO studentVO);
 	public int insert(StudentVO studentVO);
+	public int delete(String st_num);
 	
 	
 }

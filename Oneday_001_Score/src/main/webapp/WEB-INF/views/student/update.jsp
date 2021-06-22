@@ -9,7 +9,7 @@
 	<%@ include file="/WEB-INF/views/include/header.jsp"%>
 
 	<section class="main">
-		<form class="update_box" method="POST">
+		<form class="update_box" id ="student_update" method="POST">
 			<fieldset>
 				<legend>학생정보수정하기</legend>
 				<div>
@@ -41,7 +41,7 @@
 				<div class="btn_box" data-seq="${stuVO.st_num}">
 					<button class="btn_insert">수정하기</button>
 					<button class="btn_insert" type="reset">리셋하기</button>
-					<button class="btn_insert" id ="delete"><span>삭제하기</span></button>
+					<button class="btn_delete " id ="delete">삭제하기</button>
 					<button class="btn_insert">돌아가기</button>
 				</div>
 
@@ -57,22 +57,31 @@
 
 <script>
 	
-	document.addEventListener("click",(e)=>{
-		let tagName = e.target.id;
+	document.querySelector("form#student_update button.btn_insert").addEventListener("click",(e)=>{
+		
 		let url = `${rootPath}`;
+		let form = document.querySelector("form#student_update");
 		
-		if(tagName === "#delete" ) {
-			let text = e.target.textContent;
-			alert(text);
-			
-			if(text === "삭제하기") {
-				alert(getSEQ);
-				location.href="${rootPath}/student/delete;
-			}
-		}
+		let st_num = form.querySelector("input#st_num");
+		let st_name = form.querySelector("input#st_name");
+		let st_dept = form.querySelector("input#st_dept");
+		let st_grade = form.querySelector("input#st_grade");
+		let st_tel = form.querySelector("input#st_tel");
+		let st_addr = form.querySelector("input#st_addr");
 		
 		
-	})
+	});
+	
+	document.querySelector("form#student_update button.btn_delete").addEventListener("click",(e)=>{
+		
+		let stnum = e.target.closest("div").dataset.seq
+		
+		let url = `${rootPath}`;
+		alert(" url + "/student/delete?stnum=" + stnum")
+		location.href = url + "/student/delete?stnum=" + stnum;
+		
+	});
+		
 
 
 </script>

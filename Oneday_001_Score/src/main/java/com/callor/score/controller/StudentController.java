@@ -93,12 +93,11 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/delete", method = RequestMethod.GET)
-	public String delete(StudentVO stuVO) {
+	public String delete( @RequestParam("stnum") String stnum) {
 		
-		String st_num = stuVO.getSt_num();
-		stuDao.delete(st_num);
+		stuSer.delete(stnum);
 		
-		log.debug("## st_num : {}",st_num);
+		log.debug("## st_num : {}",stnum);
 		
 		return "redirect:/";
 	}

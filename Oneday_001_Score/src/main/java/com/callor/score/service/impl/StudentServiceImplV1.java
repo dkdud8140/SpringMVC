@@ -59,6 +59,12 @@ public class StudentServiceImplV1 implements StudentService {
 	}
 
 
+	@Override
+	public int delete(String st_num) {
+		return stuDao.delete(st_num);
+	}
+
+
 	
 	
 	
