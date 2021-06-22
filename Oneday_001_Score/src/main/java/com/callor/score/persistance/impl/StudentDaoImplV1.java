@@ -60,6 +60,8 @@ public class StudentDaoImplV1 implements StudentDao{
 		sql += " (st_name, st_dept, st_grade,st_tel,st_addr) ";
 		sql+= " values( ?, ?, ?, ?, ? ) ";
 		
+		log.debug(vo.toString());
+		
 		Object[] params = new Object[] { 
 				vo.getSt_name(),
 				vo.getSt_dept(),
@@ -68,6 +70,7 @@ public class StudentDaoImplV1 implements StudentDao{
 				vo.getSt_addr()
 		};
 		
+		log.debug(params.toString());
 		return jdbcTemplate.update(sql, params);
 	}
 
@@ -92,6 +95,7 @@ public class StudentDaoImplV1 implements StudentDao{
 			  vo.getSt_num()
 			};
 		
+		log.debug(params.toString());
 		return jdbcTemplate.update(sql, params);
 	}
 

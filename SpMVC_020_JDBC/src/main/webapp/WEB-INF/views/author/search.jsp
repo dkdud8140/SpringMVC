@@ -5,19 +5,9 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="/WEB-INF/views/include/include_head.jspf"%>
-<style>
-button.btn_book_insert {
-	background-color: black;
-	color: white;
-}
-</style>
-
 
 <body>
-	<%@ include file="/WEB-INF/views/include/include_header.jspf"%>
-	<h1 class="page_title">저자정보</h1>
-	<section class="main_sec">
-		<div class="list_table_box">
+	<section class="search_sec">
 			<table>
 				<tr>
 					<th>저자코드</th>
@@ -34,7 +24,7 @@ button.btn_book_insert {
 					
 					<c:otherwise>
 						<c:forEach items="${AUTHORS}" var="AUTH" varStatus="seq">
-						<tr>
+						<tr data-acode="${AUTH.au_code}" class="search_author">
 							<td>${AUTH.au_code}</td>
 							<td>${AUTH.au_name}</td>
 							<td>${AUTH.au_tel}</td>
@@ -44,15 +34,9 @@ button.btn_book_insert {
 						</c:forEach>			
 					</c:otherwise>
 				</c:choose>
-				
 			</table>
-
-			<div class="btn_box">
-				<button class="btn_author_insert">저자정보등록</button>
-			</div>
-		</div>
 	</section>
-	<%@ include file="/WEB-INF/views/include/include_footer.jspf"%>
+	
 </body>
 <script>
 document.querySelector("button.btn_author_insert").addEventListener("click",()=>{

@@ -40,8 +40,6 @@ public class StudentServiceImplV1 implements StudentService {
 			sVO.getSt_addr()
 		};		
 		
-		log.debug(" ** SQL : {} "+sql);
-		
 		sVO = (StudentVO)jdbcTemplate.query(sql, params, new BeanPropertyRowMapper<StudentVO>(StudentVO.class));
 		
 		return sVO;
@@ -50,22 +48,14 @@ public class StudentServiceImplV1 implements StudentService {
 	@Override
 	public int update(StudentVO sVO) {
 		// TODO 업데이트 하기
-		
-		stuDao.update(sVO);
-		
-		log.debug("** studentVO : {}" + sVO.toString());
-		
-//		StudentVO sVO2 = this.selectCheck(sVO);
-//		
-//		if(sVO2 == null) {
-//			stuDao.update(sVO);
-//		} else if (sVO2 == sVO) {
-//			stuDao.update(sVO); 
-//		} else {
-//			
-//		}
-		
-		return 0;
+		return stuDao.update(sVO);
+	}
+
+
+	@Override
+	public int insert(StudentVO studentVO) {
+		// TODO 학생정보 입력하기
+		return stuDao.insert(studentVO);
 	}
 
 

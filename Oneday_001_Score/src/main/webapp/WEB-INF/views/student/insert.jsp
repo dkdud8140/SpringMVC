@@ -22,7 +22,7 @@
 				</div>
 				<div>
 					<label>학년</label> 
-					<input name="st_grde" id="st_grade">
+					<input name="st_grade" id="st_grade" value="0">
 				</div>
 				<div>
 					<label>전화번호</label> 

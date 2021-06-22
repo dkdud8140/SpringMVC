@@ -65,4 +65,18 @@ public class CompServiceImplV1 implements CompService {
 		return compDao.findById(cp_code.trim());
 	}
 
+
+	@Override
+	public List<CompVO> findByTitleAndCeaAndTel(String searchText) {
+
+		List<CompVO> mainList = compDao.findByCName(searchText);
+		List<CompVO> ceoList = compDao.findByCCeo(searchText);
+		List<CompVO> telList = compDao.findByCTel(searchText);
+		
+		mainList.addAll(ceoList);
+		mainList.addAll(telList);
+		
+		return mainList;
+	}
+
 }

@@ -103,9 +103,7 @@ button:hover {
 
 div.btn_box {
 	text-align: right;
-	
 }
-
 
 
 div#modal {
@@ -138,5 +136,36 @@ div#modal span:hover{
 	color: black;
 	cursor: pointer;
 }
+
+section.search_sec {
+	
+	/*	바깥쪽 box의 position이 fixed로 되어있기 때문에
+		내부의 box를 바깥 box의 중앙에 배치하기 위하여
+		position을 absolute로 설정하여 위치를 지정하였다 
+	*/
+		position : absolute;
+		top : 50%;
+		left : 50%;
+		/* 자기 몸체의 50%의 크기만큼 x,y방향으로 후진*/
+		transform : translate(-50%, -50%);
+	
+		background-color: white;
+		opacity: 1;
+		width: 80%;
+		height: 80%;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		overflow: auto;
+		z-index: 200;
+	}
+
+	section.search_sec table{
+		margin : 10px auto;
+		width: 90%;
+		opacity: 1;
+	}
+
+
 
 

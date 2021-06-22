@@ -39,8 +39,8 @@ public class BookVO {
 	 * 
 	 */
 	
-	private int bk_price = 0 ;
-	private int bk_pages ;
+	private int bk_price;
+	private int bk_pages;
 	
 	
 	

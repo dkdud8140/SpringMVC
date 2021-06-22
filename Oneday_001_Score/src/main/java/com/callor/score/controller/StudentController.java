@@ -72,8 +72,7 @@ public class StudentController {
 	public String update(StudentVO stuVO) {
 	
 		stuSer.update(stuVO);
-		
-		
+
 		return "redirect:/";
 	}
 	
@@ -88,7 +87,7 @@ public class StudentController {
 	@RequestMapping(value="/insert", method = RequestMethod.POST)
 	public String insert(StudentVO stuVO) {
 
-		stuDao.insert(stuVO);
+		stuSer.insert(stuVO);
 		
 		return "redirect:/";
 	}
