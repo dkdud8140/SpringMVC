@@ -85,7 +85,7 @@ table.info_table tr th {
 			<button class="btn_update" >학생정보 수정</button>
 		</div>
 
-		<div class="wrap_info_table">
+		<div class="wrap_info_table" data-seq ="${stuVO.st_num}">
 			<table class="info_table">
 				<tr class="title">
 					<th>No.</th>
@@ -130,15 +130,14 @@ table.info_table tr th {
 			let getSEQ= e.target.closest("DIV").dataset.seq;
 			
 			if(text === "학생정보 수정") {
-				
 				location.href="${rootPath}/student/update?stnum=" + getSEQ;
 			}
+			
+			if(text === "성적정보 수정") {
+				location.href="${rootPath}/score/update?stnum=" + getSEQ;
+			}
 		}
-		
-		
 	})
-	
-
 
 </script>
 

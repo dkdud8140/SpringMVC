@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.callor.score.model.ScoreVO;
 import com.callor.score.model.StudentVO;
@@ -41,16 +42,31 @@ public class ScoreController {
 	
 	@RequestMapping(value="/insert", method = RequestMethod.GET)
 	public String insert(Model model) {
-	
-		
 		return "/score/insert";
 	}
 	
 	@RequestMapping(value="/insert", method = RequestMethod.POST)
 	public String insert(ScoreVO scoreVO) {
-
 		scoreDao.insert(scoreVO);
-		
 		return "redirect:/";
 	}
+	
+	
+	@RequestMapping(value="/update", method = RequestMethod.GET)
+	public String update( @RequestParam("stnum") String stnum, Model model) {
+		
+		List<ScoreVO> scoreList = scoreDao.selectAll(stnum);
+		model.addAttribute("SCORES", scoreList);
+		return "/score/update";
+	}
+	
+	@RequestMapping(value="/update", method = RequestMethod.POST)
+	public String update(ScoreVO scoreVO) {
+		
+		log.debug(scoreVO.toString());
+		scoreDao.update(scoreVO);
+		return "redirect:/";
+	}
+	
+	
 }

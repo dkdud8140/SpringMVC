@@ -14,28 +14,28 @@
 				<legend>학생정보수정하기</legend>
 				<div>
 					<label>학번</label> 
-					<input name="st_num" id="st_num" placeholder="${stuVO.st_num}" readonly="readonly" value ="${stuVO.st_num}" >
+					<input name="st_num" id="st_num" readonly="readonly" value ="${stuVO.st_num}" >
 				</div>
 
 				<div>
 					<label>이름</label> 
-					<input name="st_name" id="st_name" placeholder="${stuVO.st_name}" value ="${stuVO.st_name}" >
+					<input name="st_name" id="st_name" value ="${stuVO.st_name}" >
 				</div>
 				<div>
 					<label>전공</label> 
-					<input name="st_dept" id="st_dept" placeholder="${stuVO.st_dept}" value="${stuVO.st_dept}">
+					<input name="st_dept" id="st_dept" value="${stuVO.st_dept}">
 				</div>
 				<div>
 					<label>학년</label> 
-					<input name="st_grade" id="st_grade"	placeholder="${stuVO.st_grade}" value="${stuVO.st_grade}">
+					<input name="st_grade" id="st_grade" value="${stuVO.st_grade}">
 				</div>
 				<div>
 					<label>전화번호</label> 
-					<input name="st_tel" id="st_tel" placeholder="${stuVO.st_tel}" value="${stuVO.st_tel}">
+					<input name="st_tel" id="st_tel" value="${stuVO.st_tel}">
 				</div>
 				<div>
 					<label>주소</label> 
-					<input name="st_addr" id="st_addr" placeholder="${stuVO.st_addr}" value ="${stuVO.st_addr}">
+					<input name="st_addr" id="st_addr" value ="${stuVO.st_addr}">
 				</div>
 				
 				<div class="btn_box" data-seq="${stuVO.st_num}">
@@ -77,7 +77,6 @@
 		let stnum = e.target.closest("div").dataset.seq
 		
 		let url = `${rootPath}`;
-		alert(" url + "/student/delete?stnum=" + stnum")
 		location.href = url + "/student/delete?stnum=" + stnum;
 		
 	});

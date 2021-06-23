@@ -65,7 +65,19 @@ public class ScoreDaoImplV1 implements ScoreDao {
 	public int update(ScoreVO vo) {
 		// TODO 성적정보 수정하기 
 		
-		return 0;
+		String sql = " UPDATE tbl_score SET ";
+		sql += " sc_subject = ?, ";
+		sql += " sc_score = ? ";
+		sql += " WHERE sc_stnum = ? ";
+		
+		Object[] params = new Object[] 
+			{ vo.getSc_subject(),
+			  vo.getSc_score(),		
+			  vo.getSc_stnum()
+			};
+		
+		log.debug(params.toString());
+		return jdbcTemplate.update(sql, params);
 	}
 
 	@Override
@@ -78,6 +90,12 @@ public class ScoreDaoImplV1 implements ScoreDao {
 	@Override
 	public List<ScoreVO> selectAll() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<ScoreVO> selectByStNum(String sc_stnum) {
 		return null;
 	}
 
