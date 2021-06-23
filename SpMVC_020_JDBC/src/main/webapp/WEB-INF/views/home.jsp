@@ -38,7 +38,7 @@
 				<c:choose>
 					<c:when test="${not empty BOOKS}">
 						<c:forEach var="index" begin="0" end="4">
-							<li>${BOOKS[index].bk_title}&nbsp; ${BOOKS[index].bk_cpcode}
+							<li>${BOOKS[index].bk_title}&nbsp; ${BOOKS[index].bk_ccode}
 								&nbsp; ${BOOKS[index].bk_acode}</li>
 						</c:forEach>
 					</c:when>
