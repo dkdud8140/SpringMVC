@@ -16,8 +16,10 @@ INSERT INTO tbl_student
 VALUES('2021001','홍길동','컴퓨터공학과',3,'010-1111-2222');
 
 commit;
-
+rollback;
 drop table tbl_score;
+drop table tbl_student;
+drop table tbl_subject;
 
 
 CREATE TABLE tbl_score (
@@ -55,10 +57,18 @@ INSERT INTO tbl_subject (sb_code, sb_name, sb_proft)
 VALUES('S005','서양철학','임이과');
 
 
+select * from tbl_score ;
+select * from tbl_student ;
+select * from tbl_subject ;
 
 
-
-
+		SELECT sc_seq, sc_stnum, T.st_name AS sc_stname, sc_sbcode, B.sb_name AS sc_sbname, sc_score
+		FROM tbl_score C
+			LEFT JOIN tbl_student T
+				ON C.sc_stnum = T.st_num
+			LEFT JOIN tbl_subject B
+				ON C.sc_sbcode = B.sb_code
+		ORDER BY sc_stnum, sc_sbcode;
 
 
 
