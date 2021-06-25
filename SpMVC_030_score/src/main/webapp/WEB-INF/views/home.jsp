@@ -9,18 +9,10 @@
 <meta name="viewport" content="width=device-width, initial-scale:1" />
 <title>대한고교 성적입력 시스템</title>
 <style>
-@font-face {
-    font-family: 'LAB디지털';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/LAB디지털.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	 font-family: 'LAB디지털';
 }
 
 body, html {
@@ -32,8 +24,7 @@ body, html {
 }
 
 header {
-	background: linear-gradient(to right, #1E9600, #FFF200, #FF0000);
-	/*	background: url("${rootPath}/static/images/header_background2.jpg")	no-repeat;*/
+	background: linear-gradient(to right, red, orange, yellow, green, blue, navy, purple);
 	background-size: 100% 100%;
 	background-position: top;
 	background-attachment: fixed;
@@ -48,11 +39,34 @@ section#main_sec {
 	width: 100vw;
 	display: flex;
 	flex-direction: column;
-	background: linear-gradient(to right, #1E9600, #FFF200, #FF0000);
+	background: linear-gradient(to right, red, orange, yellow, green, blue, navy, purple);
+	
 	background-size: 100% 100%;
 	background-position: top;
 	background-attachment: fixed;
 }
+.box01{
+        width: 100%;
+        height: 100vh; 
+        position: relative;
+        }
+
+
+.box01::before{
+        content: "";
+       background: url("${rootPath}/static/images/n.jpg") no-repeat ;
+       background-size : 100% 100% ;
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+
+출처: https://ddorang-d.tistory.com/89 [도라미도라미]
 
 table {
 	border: 0;
@@ -108,7 +122,7 @@ button.insert {
 }
 
 button.list {
-	background-color: #ff502f;
+	background-color: navy;
 	color: white;
 }
 
@@ -117,6 +131,30 @@ button.home {
 	color: black;
 }
 
+button.save {
+	background-color: #1E9600;
+	color: white;
+}
+
+button.reset {
+	background-color: #FFF200;
+	color: #1E9600;
+}
+
+button.list {
+	background-color: #FF0000;
+	color: white;
+}
+
+button.update {
+	background-color: blue;
+	color: white;
+}
+
+button.delete {
+	background-color: red;
+	color: yellow;
+}
 
 tr:nth-of-type(odd) {
 	background-color: #FDFDEB;
@@ -136,11 +174,10 @@ tr:hover {
 	cursor: pointer;
 }
 
-
 h2 {
 	width: 90%;
 	padding: 1rem;
-	color: white ;
+	color: white;
 	margin: 10px auto 0 auto;
 	text-align: center;
 }
@@ -154,12 +191,16 @@ fieldset {
 	background-color: white;
 	border: 1px solod white;
 	border-radius: 10px;
-	padding : 0.7rem;
+	padding: 0.7rem;
+}
+
+input:hover {
+	background-color: #FDFDEB;
 }
 
 form label, form input {
 	display: inline-block;
-	margin : 5px;
+	margin: 5px;
 	padding: 8px 16px;
 }
 
@@ -169,33 +210,13 @@ form label {
 	color: blue;
 	font-weight: bold;
 }
+
 form input {
 	width: 60%;
 	outline: 0;
 	border: #aaa;
 	border-radius: 50px;
 }
-
-form input:hover {
-	background-color: #FDFDEB ;
-}
-
-form button.save {
-	background-color: #1E9600 ;
-	color: white;
-}
-
-form button.reset {
-	background-color: #FFF200;
-	color: #1E9600;
-}
-
-form button.list {
-	background-color: #FF0000;
-	color: white;
-}
-
-
 </style>
 
 
@@ -205,10 +226,11 @@ form button.list {
 		<h1>대한고교 성적입력 시스템</h1>
 		<p>대한고교 성적처리 시스템 2021.</p>
 	</header>
-
+	
 	<section id="main_sec">
+	
 		<c:choose>
-		
+
 			<c:when test="${BODY == 'SCORE_VIEW'}">
 				<%@ include file="/WEB-INF/views/score/list.jsp"%>
 			</c:when>
@@ -216,9 +238,13 @@ form button.list {
 			<c:when test="${BODY == 'STUDENT_VIEW'}">
 				<%@ include file="/WEB-INF/views/student/list.jsp"%>
 			</c:when>
-			
+
 			<c:when test="${BODY =='STUDENT_INPUT'}">
 				<%@ include file="/WEB-INF/views/student/input.jsp"%>
+			</c:when>
+
+			<c:when test="${BODY =='STUDENT_DETAIL'}">
+				<%@ include file="/WEB-INF/views/student/detail.jsp"%>
 			</c:when>
 
 			<c:otherwise>
@@ -227,7 +253,7 @@ form button.list {
 
 		</c:choose>
 	</section>
-
+<div class="box01"></div>
 </body>
 
 <script type="text/javascript">
@@ -243,9 +269,9 @@ form button.list {
 		addEvent를 수행해 주어야 한다.
 	*/
 
-	let std_list = document.querySelector("button.student.list");
-	let std_insert = document.querySelector("button.student.insert");
-	let home = document.querySelector("button.student.home");
+	let std_list = document.querySelector("button.list");
+	let std_insert = document.querySelector("button.insert");
+	let home = document.querySelector("button.home");
 	
 	if(std_list) {
 		std_list.addEventListener("click",(e)=>{
@@ -265,8 +291,25 @@ form button.list {
 		})
 	}
 	
+	let table = document.querySelector("table.detail")
+	
+	if(table) {
+	
+		table.addEventListener("click",(e)=>{
+			let target = e.target
+			let tagName = target.tagName
+			
+			if(tagName==="TD") {
+				let tr = target.closest("TR")
+				let stNum = tr.dataset.stnum
+				
+				location.href = "${rootPath}/student/detail?st_num="+stNum
+			}
+		})
+	}
+
+	
+	
 
 </script>
-
-
 </html>

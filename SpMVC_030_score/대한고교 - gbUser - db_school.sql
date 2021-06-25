@@ -70,6 +70,18 @@ select * from tbl_subject ;
 				ON C.sc_sbcode = B.sb_code
 		ORDER BY sc_stnum, sc_sbcode;
 
+/*
+	과목리스트를 전체 보여주고 
+	
+	이 JOIN  명령문에 특정한 박번을 조건으로 부여하여 한 학생의 성적 여부를 조회하는 SQL문 만들기
+    
+	순수한 JOIN을 사용하여 한 학생의 성적을 조회하는데
+    학생의 성적이 tbl_score table에 있으면
+    점수를 보이고 없으면 NULL로 표현하기 위하여 
+	WHERE절에서 학버능ㄹ 조건으로 부여하지 않고
+    JOIN문의  ON 절에 학번을 조건으로 부여한다
+*/
+
 
 
 

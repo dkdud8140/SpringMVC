@@ -6,44 +6,84 @@
 
 <mapper namespace="com.callor.score.dao.ext.ScoreDao">
 
+	<select id="scoreCount" resultType="Integer">
+		SELECT COUNT(*) FROM tbl_score
+		WHERE sc_stnum = #{sc_stnum}
+	</select>
+	
+	<select id="scoreSum" resultType="Integer">
+		SELECT SUM(sc_score) FROM tbl_score
+		WHERE sc_stnum = #{sc_stnum}
+	</select>
+
 	<select id="selectAll" resultType="ScoreVO">
 		SELECT * FROM tbl_score
 	</select>
-
+	
+	
 	<select id="findById" resultType="ScoreVO">
-		SELECT * FROM tbl_score
-		WHERE sc_seq = #{sc_seq}
+		SELECT * FROM tbl_score WHERE sc_seq = #{sc_seq}
 	</select>
-
+	
+	
 	<select id="selectViewAll" resultType="ScoreDTO">
-		SELECT sc_seq, sc_stnum, T.st_name sc_stname, sc_sbcode, B.sb_name sc_sbname, sc_score
-		FROM tbl_score C
-			LEFT JOIN tbl_student T
-				ON C.sc_stnum = T.st_num
-			LEFT JOIN tbl_subject B
-				ON C.sc_sbcode = B.sb_code
-		ORDER BY sc_stnum, sc_sbcode;
+			SELECT sc_seq,
+					sc_stnum,
+					ST.st_name sc_stname,
+					sc_sbcode,
+					SB.sb_name sc_sbname,
+					sc_score
+			FROM tbl_score SC
+				LEFT JOIN tbl_student ST
+					ON SC.sc_stnum = ST.st_num
+				LEFT JOIN tbl_subject SB
+					ON SC.sc_sbcode = SB.sb_code
+			ORDER BY sc_stnum, sc_sbcode
 	</select>
-
-
+	
+	<select id="selectSubjectAndScore" 
+			resultType="SubjectAndScoreDTO">
+		SELECT 
+			SB.sb_code as ss_code, 
+			SB.sb_name as ss_stname, 
+			SB.sb_proft as ss_proft,
+			SC.sc_stnum as ss_stnum, 
+			SC.sc_score as ss_score
+			FROM tbl_subject SB
+				LEFT JOIN tbl_score SC
+					ON SC.sc_sbcode = SB.sb_code 
+	        	AND SC.sc_stnum = #{st_num};
+	</select>
+	
+	
 	<insert id="insert" parameterType="ScoreVO">
-		INSERT INTO tbl_score
-			( sc_stnum, sc_sbcode, sc_score )
-		VALUES
-			( #{sc_stnum}, #{sc_sbcode}, #{sc_score} )
+		INSERT INTO
+			tbl_score(
+				sc_stnum,sc_sbcode,sc_score
+		)VALUES(
+			#{st_stnum},#{sc_sbcode},#{sc_score}
+		)
 	</insert>
-
+	
+	<insert id="insertOrUpdate">
+		INSERT INTO tbl_score(sc_stnum,sc_sbcode, sc_score)
+		VALUES(#{st_num}, #{sc_sbcode}, #{sc_score})
+		ON DUPLICATE KEY UPDATE sc_stnum = #{st_num},
+								sc_sbcode = #{sc_sbcode}
+	
+	</insert>
+	
 	<update id="update" parameterType="ScoreVO">
 		UPDATE tbl_score SET
-			sc_stname = #{sc_stname},
-			sc_sbcode= #{sc_sbcode},
-			sc_score = #{sc_score},
-		WHERE sc_seq = #{sc_seq}
+			sc_stnum = #{sc_stnum},
+			sc_sbcode = #{sc_sbcode },
+			sc_score= #{sc_score},
+		WHERE sc_seq = #{sc_num}
 	</update>
-
+	
+	
 	<delete id="delete">
-		DELETE FROM tbl_score
-		WHERE sc_seq = #{sc_seq}
+		DELETE FROM tbl_score WHERE sc_seq = #{sc_seq}
 	</delete>
 
 </mapper>
