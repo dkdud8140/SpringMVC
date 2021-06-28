@@ -34,6 +34,45 @@ header {
 	padding: 3rem;
 }
 
+nav {
+	background-color: black;
+	color:white;
+	width:100wv;
+}
+
+nav.fixed {
+	position : fixed;
+	top: 0;
+	left: 0;
+	right: 10px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+}
+
+nav ul {
+	list-style: none;
+	display : flex;
+	margin : 0 20px;
+}
+
+nav li {
+	padding : 16px 12px;
+	border-bottom: 3px solid transparent;
+	transition:0.3s;
+}
+
+nav li:hover {
+	border-bottom: 3px solid yellow;
+	cursor: pointer;
+}
+
+nav li:nth-of-type(2) {
+	margin-left : auto; 
+}
+
+
+
+
 section#main_sec {
 	flex: 1;
 	width: 100vw;
@@ -65,8 +104,6 @@ section#main_sec {
         bottom: 0px;
     }
 
-
-출처: https://ddorang-d.tistory.com/89 [도라미도라미]
 
 table {
 	border: 0;
@@ -227,6 +264,15 @@ form input {
 		<p>대한고교 성적처리 시스템 2021.</p>
 	</header>
 	
+	<nav id="main_nav">
+		<ul>
+			<li>HOME</li>
+			<li>로그인</li>
+			<li>로그아웃</li>
+			<li>관리자</li>
+		</ul>
+	</nav>
+	
 	<section id="main_sec">
 	
 		<c:choose>
@@ -253,7 +299,6 @@ form input {
 
 		</c:choose>
 	</section>
-<div class="box01"></div>
 </body>
 
 <script type="text/javascript">
@@ -308,6 +353,16 @@ form input {
 		})
 	}
 
+	let main_nav = document.querySelector("nav#main_nav");
+	let main_header =document.querySelector("header");
+	
+	// header box의 높이가 얼마냐
+	let main_header_height = main_header.offsetHeight;
+	
+	// HTML 문저 전체의 크기, 좌표 등을 추출하기
+	document.addEventListener("scroll",()=>{
+		let doc_bound = document.querySelector("HTML").getBoundingClientRect();
+	})
 	
 	
 

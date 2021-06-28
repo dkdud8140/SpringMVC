@@ -69,15 +69,24 @@ public class StudentController {
 	
 	@RequestMapping(value="/detail",method=RequestMethod.POST)
 //	public String detail(@RequestParam(name="subject") List<String> subject,@RequestParam(name="score") List<String> score ) {
-	public String detail(ScoreInputVO scInputVO) {
+	public String detail(ScoreInputVO scInputVO, Model model) {
 //		log.debug("subject : {}", subject.toString());
 //		log.debug("score : {}", score.toString());
 		
 		log.debug("Score Input {}", scInputVO.toString());
 	
 		String ret = sSer.scoreInput(scInputVO);
+		String st_num = scInputVO.getSt_num();
 		
-		return "home";
+		/*
+		 * redirect를 수행할 때 query string 을 보내고 싶으면
+		 * 해당 변수와 값을 model에 속성(Attribute)로 추가(add)
+		 * 
+		 * redirect:/student/deatil>st_num =?
+		 */
+		model.addAttribute("st_num", st_num);
+		return "redirect:/student/deatil";
+		//return "home";
 		
 	}
 	

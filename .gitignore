@@ -148,3 +148,7 @@ RemoteSystemsTempFiles/
 
 # ETC
 .bak
+
+
+# naver secret
+NaverSecret.*

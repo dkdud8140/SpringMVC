@@ -2,11 +2,13 @@ package com.callor.score.service.impl;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
 import com.callor.score.dao.ext.ScoreDao;
@@ -145,22 +147,83 @@ public class StudentServiceImplV1 implements StudentService {
 		log.debug("학생데이터  {}",stVO);
 		log.debug("점수데이터 {}",ssList);
 		
+		model.addAttribute("st_num", st_num);
+	
 		return ret;
 	}
 
+	/*
+	 * Transaction의 조건
+	 * 다수의 CRUD는 한 개의 업무 프로세스다
+	 * 다수의 CRUD가 모두 정상적으로 완료되어야만
+	 * 업무가 정상으로 수행된다
+	 * 
+	 * 업무가 수행되는 동안 한 곳이라도 CRUD에서 오류가 발생하면
+	 * 그 중 CUD가 진행되는 동안 문제가 발생하고 데이터에 오류가 저장 될 것이다.
+	 * 
+	 * 이런 상황을 방지하기 위하여
+	 * 업무 단위를 Transaction이라는 단위로 묶고 
+	 * 모든 업무가 완료되면 데이터를 Commit(실제저장)하고
+	 * 그렇지 않으면 RollBack All(모두 취소)하는 처리
+	 */
+	
+	@Transactional
 	@Override
 	public String scoreInput(ScoreInputVO scInputVO) {
 
 		log.debug("Service RCV {}", scInputVO.toString());
 		
 		int size = scInputVO.getSubject().size();
+		String st_num = scInputVO.getSt_num();
+//		for(int i = 0; i < size -2 ; i ++ ) {
+//			scDao.insertOrUpdate(
+//					scInputVO.getSt_num() ,
+//					scInputVO.getSubject().get(i),
+//					scInputVO.getScore().get(i));
+//		}
 		
-		for(int i = 0; i < size ; i ++ ) {
-			scDao.insertOrUpdate(scInputVO.getSt_num() , scInputVO.getSubject().get(i),scInputVO.getScore().get(i));
+		
+		//Dao에 보낼 데이터를 변경하기
+		
+		// 과목코드와 점수의 List를 담을 변수 선언
+		List<Map<String,String>> scoreMaps = new ArrayList<Map<String,String>>();
+		
+		
+		for(int i = 0 ; i < size ; i ++) {
+			String subject = scInputVO.getSubject().get(i);
+			String score = scInputVO.getScore().get(i);
+			
+			Map<String, String> subjectScore = new HashMap<String, String>();
+			subjectScore.put("subject", subject);
+			subjectScore.put("score", score);
+			scoreMaps.add(subjectScore);
 		}
+		
+		scDao.insertOrUpdateForList(st_num,scoreMaps);
+		
+		
+		/*
+		 * @Transactional로 선언된 method에서 
+		 * 모든 데이터를 insertOrUpadate를 수행한 다음
+		 * 강제로 exception을 발생하였다
+		 * 
+		 * 그럤더니 transactionManager에 의해서
+		 * 모든 Insert Or Update가 Rollback  되어버렸다 
+		 * 
+		 */
+		
+		
+		//이유 불문하고 무조건 RuntimeExceptiong을 발생하라
+		//throw new RuntimeException();
+		
 		return null;
 	}
 	
+	
+	
+	
+	
 }
+
 
 
