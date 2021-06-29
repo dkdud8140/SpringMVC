@@ -36,28 +36,28 @@ public class HomeController {
 		return "redirect:/score";
 	}
 	
-	
-	/* @ResponseBody
-	 * API Server를 만들 때 String 타입의 데이터를
-	 * Response하라는 지시어
+	/*
+	 * @ResponseBody
+	 * API Server 만들때 String type의 데이터를
+	 * Response 하라 는 지시어
 	 * 
 	 * API Server
-	 * 서로 다른 서버와 서버, 서버와 클라이언트 간에 조건을 Request하고
-	 * 그 결과를 Data로 Response하는 서비스
+	 * 서로 다른 서버와 서버, 서버와 클라이언트 간에
+	 * 조건을 Request하고, 그 결과를 Data로 Response하는 서비스
 	 * 
-	 * 서로 다른 프로젝트로 서버와 클라이언트를 개발한다
-	 * API Service는 주고 받은 데이터를 XML type, JSON type으로 만든다
+	 * 서로다른 프로젝트로 서버와 클라이언트를 개발한다
+	 * API Service는 주고받은 데이터를 XML type, JSON type으로 만든다
 	 */
-//	@ResponseBody
-//	@RequestMapping(value="/home", method = RequestMethod.GET)
-//	public String string( @RequestParam(name = "name", required = false, defaultValue = "") String name) {
-//		
-//		if(name != null && name.equals("HOME")) {
-//			return "OK";
-//		} else {
-//			return "FAIL";
-//		}
-//	}
+	@ResponseBody
+	@RequestMapping(value="/home",method=RequestMethod.GET)
+	public String string(@RequestParam(name="name",required = false,defaultValue = "") String name) {
+		
+		if(name != null && name.equals("HOME")) {
+			return "OK";
+		} else {
+			return "FAIL";
+		}
+	}
 	
 	
 }
