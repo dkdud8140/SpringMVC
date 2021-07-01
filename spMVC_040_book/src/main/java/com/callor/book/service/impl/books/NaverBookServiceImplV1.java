@@ -137,8 +137,7 @@ public class NaverBookServiceImplV1 implements NaverBookService{
 	
 	
 	/*
-	 * naver에서 받은 JsonString을 parsing하여 
-	 * List<BookDTO>에 담아서 return
+	 * naver에서 받은 JsonString을 parsing하여 List<BookDTO>에 담아서 return
 	 * 
 	 * json-simple을 사용하여 parsing하기
 	 */
