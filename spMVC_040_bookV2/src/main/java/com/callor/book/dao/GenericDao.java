@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface GenericDao<VO,PK> {
 	
-	public List<VO> selectALl();
+	public List<VO> selectAll();
 	public VO findById(PK pk);
 	public List<VO> findBySearch(String search);
 	

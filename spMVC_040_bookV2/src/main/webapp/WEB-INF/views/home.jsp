@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>My Hompage</title>
 <style>
-<style>
 * {
    box-sizing: border-box;
    margin: 0;
@@ -119,6 +118,38 @@ nav#main_nav select {
 	border-radius: 10px;
 }
 
+table {
+	width: 95%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+th, td {
+	white-space: nowrap;
+	padding: 16px 12px;
+	border-top: 1px solid #ddd ;
+}
+
+tr:last-child {
+	border-bottom:1px solid #ddd ;
+}
+
+td.book_title {
+		width : 20%;
+		max-width: 0;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	
+	td img {
+		padding : 0.5rem;
+		border: 1px solid green ;
+		border-radius: 50%;
+		width: 50px;
+		height: 50px;
+	}
+
 
 </style>
 
@@ -157,6 +188,11 @@ nav#main_nav select {
 		<%@ include file="/WEB-INF/views/book_list.jsp" %>
 		<%@ include file="/WEB-INF/views/movie_list.jsp" %>
 		<%@ include file="/WEB-INF/views/news_list.jsp" %>
+		
+		<c:if test="${not empty MY_BOOKS}">
+			<%@ include file="/WEB-INF/views/book/list_view.jsp" %>
+		</c:if>
+		
 	</section>
 	
 </body>

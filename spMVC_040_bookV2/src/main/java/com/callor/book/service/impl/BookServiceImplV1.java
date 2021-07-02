@@ -18,7 +18,7 @@ import com.callor.book.service.NaverAbstractService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Service
+@Service("bookServiceV1")
 public class BookServiceImplV1 implements BookService {
 
 	@Qualifier(NaverQualifier.NAVER_BOOK_SERVICE_V2)
@@ -45,5 +45,13 @@ public class BookServiceImplV1 implements BookService {
 		
 		return 0;
 	}
+
+
+	@Override
+	public List<BookDTO> selectAll() {
+		return bDao.selectAll();
+	}
+	
+	
 
 }
