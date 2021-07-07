@@ -12,6 +12,6 @@ public interface BookService {
 
 	public List<BookDTO> selectAll();
 	
-	public int insert(String isbn) throws UnsupportedEncodingException, ParseException, IOException;
+	public int insert(String isbn) throws Exception;
 
 }

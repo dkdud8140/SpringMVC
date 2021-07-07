@@ -73,7 +73,7 @@ public class NaverBookServiceImplV1 extends NaverAbstractService<BookDTO>{
 	 * 
 	 * json-simple을 사용하여 parsing하기 	 */
 	@Override
-	public List<BookDTO> getNaverList(String jsonString) throws ParseException {
+	public List<BookDTO> getNaverList(String jsonString) throws Exception {
 		
 		log.debug("THIS : ServiceV1");
 		

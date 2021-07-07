@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 public class NaverMovieServiceImplV1 extends NaverAbstractService<MovieDTO>{
 	
 	@Override
-	public String queryURL(String search) throws UnsupportedEncodingException {
+	public String queryURL(String search) throws Exception {
 		
 		String searchUTF8 = null ;
 		
@@ -38,7 +38,7 @@ public class NaverMovieServiceImplV1 extends NaverAbstractService<MovieDTO>{
 
 	
 	@Override
-	public List<MovieDTO> getNaverList(String jsonString) throws ParseException {
+	public List<MovieDTO> getNaverList(String jsonString) throws Exception {
 
 		JsonElement jsonElement = JsonParser.parseString(jsonString);
 		JsonElement oItems = jsonElement.getAsJsonObject().get("items");

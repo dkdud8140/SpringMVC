@@ -30,7 +30,7 @@ public class BookController {
 	
 
 	@RequestMapping(value = "/insert/{isbn}", method = RequestMethod.GET)
-	public String insert(@PathVariable("isbn")String isbn, Model model) throws ParseException, IOException {
+	public String insert(@PathVariable("isbn")String isbn, Model model) throws Exception {
 		
 		log.debug(isbn);
 		
