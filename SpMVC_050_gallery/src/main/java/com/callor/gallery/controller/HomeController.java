@@ -30,6 +30,36 @@ public class HomeController {
 	protected final GalleryService gaService;
 	
 	
+	// localhost:8080/rootPath/dumy/gallery/detail 요청을 했을 때
+	// Request를 처리할 method
+	// a tag를 클릭했을 때 : <a href="${rootPath}/dumy/gallery/detail">
+	// 주서창에 직접 입력하고 Enter를 눌렀을 때 : 
+		// http://localhost:8080/rootPath/dumy/gallery/detail
+	// localhost.href=${rootPaht}/dumy/gallery/detail로 JS에서 실행했을 때
+	@RequestMapping(value = "dumy/gallery/detail", method = RequestMethod.GET)
+	public String dumy() {
+		return "home" ;
+	}
+	
+	/*
+	 * <form action="${rootPath}/dumy/gallery/detail" method = "POST">
+	 * 		<input name ="str">
+	 * 		<button type="sumit">전송</button>
+	 * </form>
+	 * 
+	 *  JSP,HTML에서 위 코드를 만들고 입력화면을 보여준 후
+	 *  	input box에 어떤 문자열ㅇ르 입력한 후
+	 *  	전송 버튼을 클릭하면
+	 *  이 method가 Request를 수신하고
+	 *  	input box에 입력한 문자열은 str 변수에 담기게 된다.
+	 * 
+	 */
+	@RequestMapping(value = "dumy/gallery/detail", method = RequestMethod.POST)
+	public String dumy(String str) {
+		return "home" ;
+	}
+	
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		return "redirect:/gallery";

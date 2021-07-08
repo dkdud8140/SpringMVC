@@ -186,18 +186,6 @@
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	div#gallery_files{
 		display: flex;
 		flex-wrap: wrap;
@@ -209,20 +197,17 @@
 	
 </style>
 
-
-
 </head>
+
+
+
 <body>
+<%@ include file="/WEB-INF/views/include/include_nav.jsp" %>
 
 
-<header>
-	<div id="header_box">
-		<a href="${rootPath}" ><h3>AY's Gallery</h3></a>
-	</div>
-</header>
-
-<div id = body_box>
+<div id = "body_box" >
 	<c:choose>
+	
 		<c:when test="${BODY eq 'GA-INPUT'}">
 			<%@ include file="/WEB-INF/views/gallery/input.jsp" %>
 		</c:when>
@@ -235,9 +220,16 @@
 			<%@ include file="/WEB-INF/views/gallery/list.jsp" %>
 		</c:when>
 		
-		
 		<c:when test="${BODY eq 'GA-DETAIL'}">
 			<%@ include file="/WEB-INF/views/gallery/detail.jsp" %>
+		</c:when>
+		
+		<c:when test="${BODY eq 'GA-JOIN'}">
+			<%@ include file="/WEB-INF/views/member/join.jsp" %>
+		</c:when>
+		
+			<c:when test="${BODY eq 'LOGIN'}">
+			<%@ include file="/WEB-INF/views/member/login.jsp" %>
 		</c:when>
 		
 		
@@ -261,5 +253,38 @@
 </div>
 
 
+
+
 </body>
+
+
+<script>
+	
+	let main_nav = document.querySelector("nav#main_nav")
+	
+	if(main_nav) {
+			main_nav.addEventListener("click", (e)=>{
+				let menu = e.target.tagName
+				
+				if(menu == "LI") {
+					
+					menuName = e.target.id
+					if(menuName === "join") {
+						location.href = "${rootPath}/member/join"
+					} else if(menuName === "login") {
+						location.href = "${rootPath}/member/login"
+					} else if(menuName === "logout") {
+						location.href = "${rootPath}/member/logout"
+					} else if(menuName === "image_create") {
+						location.href = "${rootPath}/gallery/input"
+					} else if(menuName === "home") {
+						location.href = "${rootPath}/"
+					}
+				}
+				
+			})
+	}
+
+
+</script>
 </html>
