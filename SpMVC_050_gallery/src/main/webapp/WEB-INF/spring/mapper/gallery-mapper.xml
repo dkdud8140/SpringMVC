@@ -32,6 +32,7 @@
 	 		<result column="g_time" property="g_time"/>
 	 		<result column="g_content" property="g_content"/>
 	 		<result column="g_image" property="g_image"/>
+	 		<result column="g_subject" property="g_subject"/>
  		<collection property="fileList" ofType="FileDTO">
  			<id property="file_seq" column="f_seq"/>
  				<result property="file_original" column="f_original"/>

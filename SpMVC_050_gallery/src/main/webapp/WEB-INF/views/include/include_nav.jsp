@@ -24,18 +24,41 @@
 		margin-left: auto;
 	}
 	
+	/* ul tag에 list-style(머릿표)을 none, display를 flex
+		가로방향으로 nav 설정 */
 	nav#main_nav li{	
 		list-style: none;
 		display: inline-block;	
 		padding : 5px;
 		font-size: 13px;
 		color: #ccc;
+		position: relative;
 	}
 	
 	nav#main_nav li:hover {
 		color: black;
 		cursor: pointer;
 	}
+	
+	/*content=''; 아무 내용도 없는 가상클래스를 하나 부착하겠다*/
+	nav#main_nav li:after {
+		content: '';
+		position: absolute;
+		left : 0;
+		bottom : 0;
+		height: 0;
+		width: 0;
+		
+		transition : all 0.7s;
+	}
+	
+	nav#main_nav li:hover:after {
+		border-bottom: 3px solid #88D7D7; 
+		height : 100%;
+		width: 100%;
+	}
+	
+	
 	
 	
 	nav#main_nav li:first-child {

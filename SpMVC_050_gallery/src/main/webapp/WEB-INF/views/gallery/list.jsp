@@ -23,9 +23,7 @@
  -->
 <div id = "list_box">
 
-	<c:forEach
-		items="${GALLERYS}"
-		var="GALLERY">
+	<c:forEach items="${GALLERYS}"	var="GALLERY">
 		
 		<div id="list_box_inner">
 			<div>

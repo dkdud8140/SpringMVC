@@ -66,8 +66,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value="/",method=RequestMethod.POST)
-	public String home(
-			MultipartHttpServletRequest m_file,Model model) throws Exception {
+	public String home( MultipartHttpServletRequest m_file,Model model) throws Exception {
 		
 //		List<MultipartFile> files = m_file.getFiles("m_file");
 //		String fileName = fileService.fileUp(files.get(0));
@@ -86,9 +85,7 @@ public class HomeController {
 	 * 이 클래스에 @RequestParam을 붙이면 400오류가 난다.
 	 */
 	@RequestMapping(value = "/sub", method = RequestMethod.POST)
-	public String home(
-			@RequestParam("one_file") MultipartFile one_file,
-			MultipartHttpServletRequest m_file) {
+	public String home( @RequestParam("one_file") MultipartFile one_file, MultipartHttpServletRequest m_file) {
 		
 		log.debug("파일사이즈  {}", 
 				m_file.getFile("m_file").getSize());

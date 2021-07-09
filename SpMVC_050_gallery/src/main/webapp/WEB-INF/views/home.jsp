@@ -148,10 +148,10 @@
 		outline: none;
 	}
 	
-	.input_box .input_btn {
+	.input_box .input_btn,div#to_list {
 		display: flex;
 		margin-left: auto;
-		
+		margin-top: 20px;
 	}
 	
 	.input_box form button, div#to_list button {
@@ -260,7 +260,7 @@
 					} 
 					
 					else if(menuName === "login") {
-						location.href = "${rootPath}/member/login"
+						location.href = "${rootPath}/member/login/nav"
 					} 
 					
 					else if(menuName === "logout") {

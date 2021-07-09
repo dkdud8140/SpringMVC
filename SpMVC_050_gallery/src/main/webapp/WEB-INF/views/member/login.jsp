@@ -83,6 +83,10 @@
 		msg_error.innerText = "잘못된 비밀번호"
 		msg_error.classList.add("view")
 		
+	} else if(login_fail === "LOGIN_REQ") {
+		msg_error.innerHTML = "로그인이 필요한 서비스입니다.<br/>"
+		msg_error.innerHTML += "로그인하세요.<br/>"
+			msg_error.classList.add("view")
 	}
 	
 	

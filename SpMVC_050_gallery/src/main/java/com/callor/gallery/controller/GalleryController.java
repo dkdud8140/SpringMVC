@@ -79,7 +79,14 @@ public class GalleryController {
 	
 	
 	@RequestMapping(value="/input",method=RequestMethod.GET)
-	public String input(Model model) {
+	public String input(Model model, HttpSession session) {
+		
+		
+		MemberVO mVO = (MemberVO) session.getAttribute("MEMBER");
+		
+		if(mVO == null) {
+			return "redirect:/member/login";
+		}
 		
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
@@ -101,11 +108,7 @@ public class GalleryController {
 	}
 	
 	@RequestMapping(value="/input",method=RequestMethod.POST)
-	public String input(
-			GalleryDTO gaDTO, 
-			MultipartFile one_file,
-			MultipartHttpServletRequest m_file,
-			Model model) throws Exception {
+	public String input(GalleryDTO gaDTO, MultipartFile one_file,MultipartHttpServletRequest m_file,Model model) throws Exception {
 
 		log.debug("겔러리 정보 {}", gaDTO.toString());
 		log.debug("싱글 파일 {}", one_file.getOriginalFilename());
