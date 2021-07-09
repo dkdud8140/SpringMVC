@@ -30,29 +30,11 @@
 	}
 	
 	
-	header {
-		background-color: white;
-		border: 0.5px solid #ccc;
-		display: flex;
-		align-content: center;
-	}
-	
-	header div#header_box {
-		width : 40%;
-		font-family: 'Otomanopee One', sans-serif;
-		display: flex;
-		margin: 0 auto;
-		padding: 8px;
-	}
-	
-	
 	div#body_box {
 		width: 40%;
 		margin: 0 auto;
 		font-family: 'Nanum Gothic', sans-serif;
 	}
-	
-	
 	
 	
 	div.input_service_btn {
@@ -66,8 +48,6 @@
 		padding: 10px;
 		border-radius: 5px;
 	}
-
-
 
 
 	div#list_box {
@@ -129,27 +109,27 @@
 	
 	
 	
-	div#input_box, div#gallery_box {
+	.input_box, div#gallery_box {
 		width: 80%;
 		margin: auto;
 	}
 	
-	div#input_box form, div#gallery_box div#gallery_info {
+	.input_box form, div#gallery_box div#gallery_info {
 		margin-top: 50px;
 		width: 100%;
 	}
 	
-	div#input_box form div, div#gallery_box div#gallery_info div {
+	.input_box form div, div#gallery_box div#gallery_info div {
 		margin: 15px auto;
 		width: 100%;
 	}
 	
-	div#input_box form label,div#gallery_info div label {
+	.input_box form label,div#gallery_info div label {
 		display:inline-block;
 		width: 20%;
 	}
 	
-	div#input_box form input ,div#input_box form textarea,
+	.input_box form input , .input_box form textarea,
 	div#gallery_info div p {
 		display:inline-block;
 		width: 75%;
@@ -157,33 +137,38 @@
 		border: none;
 	}
 	
-	div#input_box form textarea {
+	.input_box form textarea {
 		height: 150px;
 	}
 	
 	
-	div#input_box form input:active , div#input_box form textarea:active,
-	div#input_box form input:focus , div#input_box form textarea:focus  {
+	.input_box form input:active , .input_box form textarea:active,
+	.input_box form input:focus , .input_box form textarea:focus  {
 		border: 1px solid #88D7D7;
 		outline: none;
 	}
 	
+	.input_box .input_btn {
+		display: flex;
+		margin-left: auto;
+		
+	}
 	
-	div#input_box form button, div#to_list button {
+	.input_box form button, div#to_list button {
 		padding: 5px 20px;
 		background-color: #88D7D7;
 		border: none;
 		outline: none;
 		cursor: pointer;
-		display : flex;
-		margin-left: auto;
-		margin-right: 5%;
+		display : inline-block;
+		margin-right: 15px;
 	}
+	
+	
 	
 	div#gallery_info div p {
 		background-color: white;
 	}
-	
 	
 	
 	div#gallery_files{
@@ -213,15 +198,16 @@
 		</c:when>
 		
 		<c:when test="${BODY eq 'GA-LIST'}">
-			<div class = "input_service_btn">
-				<a href="${rootPath}/gallery/input">이미지 등록</a>
-			</div>
-			
 			<%@ include file="/WEB-INF/views/gallery/list.jsp" %>
 		</c:when>
 		
+		
 		<c:when test="${BODY eq 'GA-DETAIL'}">
 			<%@ include file="/WEB-INF/views/gallery/detail.jsp" %>
+		</c:when>
+		
+		<c:when test="${BODY eq 'GA-DETAIL-V2'}">
+			<%@ include file="/WEB-INF/views/gallery/detail2.jsp" %>
 		</c:when>
 		
 		<c:when test="${BODY eq 'GA-JOIN'}">
@@ -271,15 +257,29 @@
 					menuName = e.target.id
 					if(menuName === "join") {
 						location.href = "${rootPath}/member/join"
-					} else if(menuName === "login") {
+					} 
+					
+					else if(menuName === "login") {
 						location.href = "${rootPath}/member/login"
-					} else if(menuName === "logout") {
+					} 
+					
+					else if(menuName === "logout") {
 						location.href = "${rootPath}/member/logout"
-					} else if(menuName === "image_create") {
+					} 
+					
+					else if(menuName === "image_create") {
 						location.href = "${rootPath}/gallery/input"
-					} else if(menuName === "home") {
+					} 
+					
+					else if(menuName === "home") {
 						location.href = "${rootPath}/"
 					}
+					
+					else if(menuName === "input") {
+						location.href = "${rootPath}/gallery/input"
+					}
+					
+					
 				}
 				
 			})

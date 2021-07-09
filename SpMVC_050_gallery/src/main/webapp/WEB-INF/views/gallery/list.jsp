@@ -30,7 +30,7 @@
 		<div id="list_box_inner">
 			<div>
 				<h2>
-					<a href="${rootPath}/gallery/detail/${GALLERY.g_seq}">${GALLERY.g_subject}</a>
+					<a href="${rootPath}/gallery/detail2/${GALLERY.g_seq}">${GALLERY.g_subject}</a>
 				</h2>
 				
 				<img src="static/profile-picture.png"><p>${GALLERY.g_writer}</p>
@@ -38,7 +38,12 @@
 			</div>
 			
 			<div>
-				<img src="${rootPath}/files/${GALLERY.g_image}" width="100px">
+				<c:if test="${ empty GALLERY.g_image }">
+					<img src="${rootPath}/files/no_image.png" width="100px">
+				</c:if>
+				<c:if test="${ not empty GALLERY.g_image }">
+					<img src="${rootPath}/files/${GALLERY.g_image}" width="100px">
+				</c:if>
 			</div>
 			
 			<div>

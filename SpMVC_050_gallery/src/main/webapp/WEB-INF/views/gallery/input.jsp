@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />    
     
-<div id="input_box">    
+<div class="input_box">    
 	<form method="POST" enctype="multipart/form-data">
 	
 		<div>

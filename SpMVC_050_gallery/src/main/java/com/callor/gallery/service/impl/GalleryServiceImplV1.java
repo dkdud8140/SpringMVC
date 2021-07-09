@@ -41,12 +41,12 @@ public class GalleryServiceImplV1 implements GalleryService {
 	 * 		이미 생성되어 준비된 객체에 주입등을 수행한다
 	 * 
 	 */
-	@Autowired
-	public void create_table(GalleryDao gDao) {
-		Map<String,String> maps = new HashMap<String,String>();
-		gaDao.create_table(maps);
-		fDao.create_table(maps);
-	}
+//	@Autowired
+//	public void create_table(GalleryDao gDao) {
+//		Map<String,String> maps = new HashMap<String,String>();
+//		gaDao.create_table(maps);
+//		fDao.create_table(maps);
+//	}
 	
 	@Override
 	public int insert(GalleryDTO galleryDTO) throws Exception {
@@ -120,6 +120,32 @@ public class GalleryServiceImplV1 implements GalleryService {
 
 	@Override
 	public List<GalleryFilesDTO> findByIdGalleryFiles(Long g_seq) {
-		return gaDao.findByIdGalleyFiles(g_seq);
+		
+		List<GalleryFilesDTO> gfList =gaDao.findByIdGalleyFiles(g_seq);
+		
+		/*
+		 * dao로부터 select를 한 후 데이터 검증 하기 위해 사용하는 코드
+		 * gfList가 데이터가 조회되지 않아 null이 발생할 수 있다
+		 * 
+		 */
+		if(gfList != null && gfList.size()>0) {
+			log.debug(gfList.toString());
+		} else {
+			log.debug("조회된 데이터가 없음");
+		}
+				
+		return gfList;
+	}
+
+	@Override
+	public GalleryDTO findByIdGallery(Long g_seq) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(Long g_seq) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

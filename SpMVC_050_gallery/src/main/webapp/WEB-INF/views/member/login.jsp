@@ -14,26 +14,28 @@
 
 </style>
 
-<form method="POST" id="login_form">
-	<div class="msg login error"></div>
-	<div>
-		<label>사용자ID</label>
-		<input name="m_userid">
-	</div>
-
+<div class="input_box">
+	<form method="POST" id="login_form">
+		<div class="msg login error"></div>
+		<div>
+			<label>사용자ID</label>
+			<input name="m_userid">
+		</div>
 	
-	<div>
-		<label>비밀번호</label>
-		<input name="m_password" type="text">
-	</div>
+		
+		<div>
+			<label>비밀번호</label>
+			<input name="m_password" type="text">
+		</div>
+		
+		<div class="input_btn">
+			<button type="button" class="login">로그인</button>
+			<button type="button" class="join">회원가입</button>
+		</div>
 	
-	<div>
-		<button type="button" class="login">로그인</button>
-		<button type="button" class="join">회원가입</button>
-	</div>
-
-
-</form>
+	
+	</form>
+</div>
 
 <script>
 	let form = document.querySelector("#login_form")

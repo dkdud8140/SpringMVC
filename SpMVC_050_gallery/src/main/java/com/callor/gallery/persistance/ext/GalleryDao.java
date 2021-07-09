@@ -10,4 +10,5 @@ public interface GalleryDao extends GenericDao<GalleryDTO, Long>{
 
 	public List<GalleryFilesDTO> findByIdGalleyFiles(Long g_seq);
 	
+	public GalleryDTO findByIdGalleyFilesResultMap(Long g_seq);
 }

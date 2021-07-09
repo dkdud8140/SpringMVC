@@ -10,37 +10,39 @@
 	}
 </style>
 
+<div class ="input_box">
+	<form method="POST" >
+		<div>
+			<label>사용자 ID(E-mail)</label>
+			<input name="m_userid" type="email">
+			<div class="msg join id"></div>
+		</div>
+	
+		<div>
+			<label>비밀번호</label>
+			<input name="m_password" type="password">
+		</div>
+		
+		<div>
+			<label>비밀번호 확인</label>
+			<input name="re_password" type="password">
+		</div>
+		
+		<div>
+			<label>닉네임</label>
+			<input name="m_nick">
+		</div>
+		
+		<div>
+			<label>연락처</label>
+			<input name="m_tel">
+		</div>
+		<div>
+			<button>가입신청</button>
+		</div>
+	</form>
+</div>
 
-<form method="POST">
-	<div>
-		<label>사용자 ID(E-mail)</label>
-		<input name="m_userid" type="email">
-		<div class="msg join id"></div>
-	</div>
-
-	<div>
-		<label>비밀번호</label>
-		<input name="m_password" type="password">
-	</div>
-	
-	<div>
-		<label>비밀번호 확인</label>
-		<input name="re_password" type="password">
-	</div>
-	
-	<div>
-		<label>닉네임</label>
-		<input name="m_nick">
-	</div>
-	
-	<div>
-		<label>연락처</label>
-		<input name="m_tel">
-	</div>
-	<div>
-		<button>가입신청</button>
-	</div>
-</form>
 
 <script>
 	
