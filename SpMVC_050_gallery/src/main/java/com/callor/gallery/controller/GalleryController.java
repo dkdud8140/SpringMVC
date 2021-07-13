@@ -164,10 +164,10 @@ public class GalleryController {
 		
 		//삭제를 요구하면
 		// 1. 로그인이 되었나 확인
-		MemberVO memVO = (MemberVO) session.getAttribute("MEMBER");
-		if(memVO == null) {
-			return "redirect:/member/login";
-		}
+		//MemberVO memVO = (MemberVO) session.getAttribute("MEMBER");
+		//if(memVO == null) {
+		//	return "redirect:/member/login";
+		//}
 		
 		Long g_seq = 0L;
 		try {

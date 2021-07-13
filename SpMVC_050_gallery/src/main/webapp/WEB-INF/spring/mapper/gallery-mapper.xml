@@ -100,7 +100,12 @@
  	
  	
  	<update id="update"></update>
- 	<delete id="delete"></delete>
+ 	<delete id="delete">
+ 		
+ 		DELETE FROM tbl_gallery
+ 		WHERE g_seq = #{g_seq}
+ 	
+ 	</delete>
  	
  	
  	<!-- 
