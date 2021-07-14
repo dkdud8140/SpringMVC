@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>나의 홈페이지</title>
+<script src="https://kit.fontawesome.com/a0b991b540.js" crossorigin="anonymous"></script>
 
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');

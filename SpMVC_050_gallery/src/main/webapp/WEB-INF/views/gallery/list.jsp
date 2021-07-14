@@ -5,8 +5,6 @@
 <%@ taglib
 	uri="http://java.sun.com/jsp/jstl/core"
 	prefix="c"%>
-	
-	
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!-- 
 <style>
@@ -28,7 +26,7 @@
 		<div id="list_box_inner">
 			<div>
 				<h2>
-					<a href="${rootPath}/gallery/detail2/${GALLERY.g_seq}">${GALLERY.g_subject}</a>
+					<a href="${rootPath}/gallery/detail2/${GALLERY.g_seq}">${GALLERY.g_subject}(${GALLERY.g_seq})</a>
 				</h2>
 				
 				<img src="static/profile-picture.png"><p>${GALLERY.g_writer}</p>
@@ -49,6 +47,8 @@
 			</div>
 		</div>
 	</c:forEach>
-
+	
 </div>
+
+<%@ include file="/WEB-INF/views/include/include_page_nav.jsp" %>
 

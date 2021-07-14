@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Service("fileServiceV1")
 public class FileServiceImplV1 implements FileService{
-	
+
 	// 서버의 특별한 폴더에 접근하기 위해
 	// 서버의 정보를 가져오기 위한 helper class
 	// protected final ServletContext context;
